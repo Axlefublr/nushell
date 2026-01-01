@@ -9,9 +9,7 @@ pub struct RmConfig {
 #[allow(clippy::derivable_impls)]
 impl Default for RmConfig {
     fn default() -> Self {
-        Self {
-            always_trash: false,
-        }
+        Self { always_trash: true }
     }
 }
 

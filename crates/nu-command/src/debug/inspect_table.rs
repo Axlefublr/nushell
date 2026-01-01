@@ -60,11 +60,11 @@ pub fn build_table(
     let width = val_table_width.max(desc_table_width).min(termsize);
 
     let mut desc_table = Table::from_iter([[String::from("description"), desc]]);
-    desc_table.with(Style::rounded().remove_bottom().remove_horizontals());
+    desc_table.with(Style::sharp().remove_bottom().remove_horizontals());
 
     let mut val_table = Table::from_iter(data);
     val_table.get_dimension_mut().set_widths(widths);
-    val_table.with(Style::rounded().corner_top_left('├').corner_top_right('┤'));
+    val_table.with(Style::sharp().corner_top_left('├').corner_top_right('┤'));
     val_table.with((
         Wrap::new(width).priority(Priority::max(true)),
         SetHorizontalChar::new('┼', '┴', 11 + 2 + 1),
