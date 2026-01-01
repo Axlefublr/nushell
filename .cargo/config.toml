@@ -1,3 +1,7 @@
+[build]
+rustflags = ["-C", "target-cpu=native"]
+jobs = -2
+
 [target.x86_64-pc-windows-msvc]
 # increase the default windows stack size
 # statically link the CRT so users don't have to install it
