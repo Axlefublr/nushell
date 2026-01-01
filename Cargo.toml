@@ -477,9 +477,10 @@ sqlite = [
 ]
 
 [profile.release]
-opt-level = "s"     # Optimize for size
 strip = "debuginfo"
+opt-level = 3
 lto = "thin"
+codegen-units = 1
 
 # build with `cargo build --profile profiling`
 # to analyze performance with tooling like linux perf
