@@ -30,10 +30,7 @@ pub const HIGHLIGHT_COLORS: &[Color] = &[
 /// Returns the appropriate foreground color for a given highlight background.
 /// Uses white for darker backgrounds, black for lighter ones.
 pub const fn highlight_fg(color: Color) -> Color {
-    match color {
-        Color::Red | Color::Magenta | Color::Blue => Color::White,
-        _ => Color::Black,
-    }
+    Color::Rgb(31, 30, 30)
 }
 
 /// Creates a highlight style for the given group index (cycles through colors).

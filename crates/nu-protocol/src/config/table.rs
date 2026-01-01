@@ -12,7 +12,6 @@ pub enum TableMode {
     Frameless,
     WithLove,
     CompactDouble,
-    #[default]
     Rounded,
     Reinforced,
     Heavy,
@@ -23,6 +22,7 @@ pub enum TableMode {
     Restructured,
     AsciiRounded,
     BasicCompact,
+    #[default]
     Single,
     Double,
 }
@@ -192,7 +192,7 @@ impl TrimStrategy {
 impl Default for TrimStrategy {
     fn default() -> Self {
         Self::Wrap {
-            try_to_keep_words: true,
+            try_to_keep_words: false,
         }
     }
 }
@@ -281,7 +281,7 @@ impl UpdateFromValue for TrimStrategy {
     }
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub struct TableIndent {
     pub left: usize,
     pub right: usize,
@@ -300,12 +300,6 @@ impl IntoValue for TableIndent {
             "right" => (self.right as i64).into_value(span),
         }
         .into_value(span)
-    }
-}
-
-impl Default for TableIndent {
-    fn default() -> Self {
-        Self { left: 1, right: 1 }
     }
 }
 
@@ -382,15 +376,15 @@ impl IntoValue for TableConfig {
 impl Default for TableConfig {
     fn default() -> Self {
         Self {
-            mode: TableMode::Rounded,
+            mode: TableMode::Single,
             index_mode: TableIndexMode::Always,
-            show_empty: true,
+            show_empty: false,
             trim: TrimStrategy::default(),
             header_on_separator: false,
             padding: TableIndent::default(),
             abbreviated_row_count: None,
-            footer_inheritance: false,
-            missing_value_symbol: "❎".into(),
+            footer_inheritance: true,
+            missing_value_symbol: "❌".into(),
             batch_duration: Duration::from_secs(1),
             stream_page_size: const { NonZeroU16::new(1000).expect("Non zero integer") },
         }

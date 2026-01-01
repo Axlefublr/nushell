@@ -122,7 +122,7 @@ impl Default for Config {
 
             completions: CompletionConfig::default(),
 
-            recursion_limit: 50,
+            recursion_limit: 10000,
 
             filesize: FilesizeConfig::default(),
 
@@ -131,8 +131,8 @@ impl Default for Config {
             clip: ClipConfig::default(),
 
             color_config: defaults::default_color_config(),
-            footer_mode: FooterMode::RowCount(25),
-            float_precision: 2,
+            footer_mode: FooterMode::Auto,
+            float_precision: 3,
             buffer_editor: Value::nothing(Span::unknown()),
             use_ansi_coloring: UseAnsiColoring::default(),
             bracketed_paste: true,
