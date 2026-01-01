@@ -1,10 +1,20 @@
 use super::prelude::*;
 use crate as nu_protocol;
+use std::default::Default;
 
-#[derive(Clone, Debug, Default, IntoValue, Serialize, Deserialize)]
+#[derive(Clone, Debug, IntoValue, Serialize, Deserialize)]
 pub struct DatetimeFormatConfig {
     pub normal: Option<String>,
     pub table: Option<String>,
+}
+
+impl Default for DatetimeFormatConfig {
+    fn default() -> Self {
+        Self {
+            normal: Some(String::from("%y.%m.%d %H:%M:%S %A")),
+            table: None,
+        }
+    }
 }
 
 impl UpdateFromValue for DatetimeFormatConfig {

@@ -87,7 +87,7 @@ impl View for TryView {
         let cmd_block = if self.view_mode {
             Block::default()
                 .borders(Borders::ALL)
-                .border_type(BorderType::Rounded)
+                .border_type(BorderType::Plain)
                 .border_style(border_color)
                 .title(Line::from(vec![
                     Span::styled(" ", Style::default()),
@@ -97,7 +97,7 @@ impl View for TryView {
         } else {
             Block::default()
                 .borders(Borders::ALL)
-                .border_type(BorderType::Rounded)
+                .border_type(BorderType::Plain)
                 .border_style(border_color.add_modifier(Modifier::BOLD))
                 .title(Line::from(vec![
                     Span::styled(" ", Style::default()),
@@ -156,7 +156,7 @@ impl View for TryView {
         let table_block = if self.view_mode {
             Block::default()
                 .borders(Borders::ALL)
-                .border_type(BorderType::Rounded)
+                .border_type(BorderType::Plain)
                 .border_style(border_color.add_modifier(Modifier::BOLD))
                 .title(Line::from(vec![
                     Span::styled(" ", Style::default()),
@@ -166,7 +166,7 @@ impl View for TryView {
         } else {
             Block::default()
                 .borders(Borders::ALL)
-                .border_type(BorderType::Rounded)
+                .border_type(BorderType::Plain)
                 .border_style(border_color)
                 .title(Line::from(vec![
                     Span::styled(" ", Style::default()),

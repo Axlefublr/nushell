@@ -214,7 +214,7 @@ pub fn run_app_loop(
 fn draw_ui(f: &mut ratatui::Frame, app: &mut App) {
     let outer_block = Block::default()
         .borders(Borders::ALL)
-        .border_type(BorderType::Rounded)
+        .border_type(BorderType::Plain)
         .border_style(styles::border_unfocused())
         .title(Line::from(vec![Span::styled(
             " Regex Explorer ",
@@ -295,7 +295,7 @@ fn draw_regex_section(f: &mut ratatui::Frame, app: &mut App, label_area: Rect, i
 
     let block = Block::default()
         .borders(Borders::ALL)
-        .border_type(BorderType::Rounded)
+        .border_type(BorderType::Plain)
         .border_style(border_style)
         .padding(Padding::horizontal(1));
 
@@ -344,7 +344,7 @@ fn draw_sample_section(
     // Sample block
     let block = Block::default()
         .borders(Borders::ALL)
-        .border_type(BorderType::Rounded)
+        .border_type(BorderType::Plain)
         .border_style(if focused {
             styles::border_focused()
         } else {
@@ -457,7 +457,7 @@ fn draw_quick_ref_panel(f: &mut ratatui::Frame, app: &mut App, area: Rect) {
 
     let block = Block::default()
         .borders(Borders::ALL)
-        .border_type(BorderType::Rounded)
+        .border_type(BorderType::Plain)
         .border_style(if focused {
             styles::border_focused()
         } else {
