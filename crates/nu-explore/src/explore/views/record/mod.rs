@@ -513,17 +513,17 @@ impl CursorMoveHandler for RecordView {
         Ok(Transition::Ok)
     }
     fn handle_esc(&mut self) -> Transition {
-        match self.mode {
-            UIMode::View => {
-                if self.layer_stack.len() > 1 {
-                    self.layer_stack.pop();
-                    self.mode = UIMode::Cursor;
-                } else {
-                    return Transition::Exit;
-                }
-            }
-            UIMode::Cursor => self.set_view_mode(),
+        // match self.mode {
+        //     UIMode::View => {
+        if self.layer_stack.len() > 1 {
+            self.layer_stack.pop();
+            self.mode = UIMode::Cursor;
+        } else {
+            return Transition::Exit;
         }
+        // }
+        //     UIMode::Cursor => self.set_view_mode(),
+        // }
         Transition::Ok
     }
     fn handle_expand(&mut self) -> Transition {
